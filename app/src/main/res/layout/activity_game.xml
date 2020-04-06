@@ -11,12 +11,13 @@
         android:src="@drawable/bg_game" />
 
     <LinearLayout
+        android:id="@+id/desk"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center|bottom"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <FrameLayout
             android:layout_width="330dp"
@@ -38,12 +39,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/you_win"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
         android:orientation="vertical"
-        android:visibility="invisible"
         android:layout_marginTop="20dp">
 
         <ImageView
@@ -51,22 +50,26 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:src="@drawable/first_player" />
+            android:src="@drawable/first_player"
+            android:visibility="invisible"/>
 
         <ImageView
+            android:id="@+id/you_win"
             android:layout_width="match_parent"
             android:layout_height="440dp"
             android:layout_gravity="center"
-            android:src="@drawable/you_win" />
+            android:src="@drawable/you_win"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/resetGameButton"
+            android:layout_width="232dp"
+            android:layout_height="83dp"
+            android:layout_gravity="center|bottom"
+            android:src="@drawable/reset_game" />
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/resetGameButton"
-        android:layout_width="232dp"
-        android:layout_height="83dp"
-        android:layout_margin="30dp"
-        android:layout_gravity="center|bottom"
-        android:src="@drawable/reset_game" />
+
 
 </FrameLayout>

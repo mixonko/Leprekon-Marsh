@@ -11,4 +11,5 @@ interface GameContract {
     fun showWinnerSecondPlayer()
     fun showYouWin()
     fun setAllDisabled()
+    fun hideDesk()
 }

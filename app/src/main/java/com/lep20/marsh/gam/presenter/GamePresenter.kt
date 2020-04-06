@@ -52,6 +52,7 @@ class GamePresenter(
         winner = winnerCheck.check(gameArray)
         if (winner != 0) {
             view.setAllDisabled()
+            view.hideDesk()
             view.showYouWin()
             if (winner == 1){
                 view.showWinnerFirstPlayer()

@@ -27,9 +27,12 @@ class GameActivity : AppCompatActivity(), GameContract, View.OnClickListener {
     private lateinit var imageView31: ImageView
     private lateinit var imageView32: ImageView
     private lateinit var imageView33: ImageView
-    private lateinit var youWin: LinearLayout
+    private lateinit var youWin: ImageView
     private lateinit var resetGame: ImageView
     private lateinit var winner: ImageView
+    private lateinit var desk: LinearLayout
+
+    private val delayMillis = 500L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +75,7 @@ class GameActivity : AppCompatActivity(), GameContract, View.OnClickListener {
         youWin = findViewById(R.id.you_win)
         resetGame = findViewById(R.id.resetGameButton)
         winner = findViewById(R.id.winner)
+        desk = findViewById(R.id.desk)
     }
 
     private fun setOnClickListener() {
@@ -122,25 +126,21 @@ class GameActivity : AppCompatActivity(), GameContract, View.OnClickListener {
     override fun showWinnerFirstPlayer() {
         Handler().postDelayed({
             winner.setImageResource(R.drawable.first_player)
-        }, 500)
+        }, delayMillis)
     }
 
     override fun showWinnerSecondPlayer() {
         Handler().postDelayed({
+            winner.visibility = View.VISIBLE
             winner.setImageResource(R.drawable.second_player)
-        }, 500)
+        }, delayMillis)
     }
 
     override fun showYouWin() {
         Handler().postDelayed({
+            winner.visibility = View.VISIBLE
             youWin.visibility = View.VISIBLE
-            imageView11.visibility = View.INVISIBLE
-            imageView12.visibility = View.INVISIBLE
-            imageView13.visibility = View.INVISIBLE
-            imageView21.visibility = View.INVISIBLE
-            imageView22.visibility = View.INVISIBLE
-            imageView23.visibility = View.INVISIBLE
-        }, 500)
+        }, delayMillis)
     }
 
     override fun setAllDisabled() {
@@ -154,6 +154,12 @@ class GameActivity : AppCompatActivity(), GameContract, View.OnClickListener {
             imageView32.isEnabled = false
             imageView33.isEnabled = false
 
+    }
+
+    override fun hideDesk(){
+        Handler().postDelayed({
+            desk.visibility = View.INVISIBLE
+        }, delayMillis)
     }
 
 }
